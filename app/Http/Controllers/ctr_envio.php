@@ -65,7 +65,7 @@ class ctr_envio extends Controller{
         $datos = $request->all();
         $funciones = App::make('\App\Http\Controllers\ctr_funciones');
         $envio_id = $funciones->callAction('Sanitizar', [base64_decode($datos['envio_id'])]);
-        $envio = mdl_envio::with(['origen', 'puerto', 'usuario', 'productos_enviados.precio.proveedor', 'productos_enviados.precio.producto.presentacion'])->find($envio_id);
+        $envio = mdl_envio::with(['origen', 'puerto.puerto_tipo', 'usuario', 'productos_enviados.precio.proveedor', 'productos_enviados.precio.producto.presentacion'])->find($envio_id);
         return response()->json($envio);
     }
 

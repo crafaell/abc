@@ -108,7 +108,7 @@
                                     <div class="col-sm-8">
                                         <select id="slc_puerto_id" class="form-control">
                                             @foreach($puertos as $puerto)
-                                                <option value="{{ $puerto->id }}">{{ $puerto->nombre }}</option>
+                                                <option value="{{ $puerto->id }}">{{ $puerto->nombre }} - {{ $puerto->puerto_tipo->nombre }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -325,7 +325,7 @@
 		                                    <div class="col-sm-8">
 		                                        <ul>
                                                     <li><b>Origen</b>: ${respuesta.origen.nombre }</li>
-                                                    <li><b>Puerto destino</b>: ${respuesta.puerto.nombre }</li>
+                                                    <li><b>Puerto destino</b>: ${respuesta.puerto.nombre } - ${respuesta.puerto.puerto_tipo.nombre }</li>
                                                     <li><b>Contenedor</b>: ${contenedor}</li>
                                                     <li><b>Fecha Envío</b>: ${fecha_envio.substring(0, 10) }</li>
                                                     <li><b>Fecha Llegada</b>: ${fecha_llegada.substring(0, 10) }</li>
