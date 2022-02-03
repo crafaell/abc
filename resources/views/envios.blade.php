@@ -144,6 +144,7 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
+                                                <th>Foto</th>
                                                 <th>Producto</th>
                                                 <th>Proveedor</th>
                                                 <th>Presentacion</th>
@@ -156,6 +157,13 @@
                                             @foreach($precios as $indice=>$precio)
                                                 <tr>
                                                     <td>{{ $indice+1 }}</td>
+                                                    <td>
+                                                        @if($precio->producto->foto)
+                                                            <img width="60" src="img/productos/{{ $precio->producto->foto }}" alt="Sin Foto">
+                                                        @else 
+                                                            Sin foto
+                                                        @endif
+                                                    </td>
                                                     <td>{{ $precio->producto->nombre }}</td>
                                                     <td>{{ $precio->proveedor->nombre }}</td>
                                                     <td>{{ $precio->producto->presentacion->nombre }}</td>
@@ -293,8 +301,12 @@
                     $('.loading-container').hide();
                     var productos = '';
                     $.each(respuesta.productos_enviados, function(indice, producto_enviado){
+                        var foto = (producto_enviado.precio.producto.foto)?'<img width="60" src="img/productos/'+producto_enviado.precio.producto.foto+'" alt="Sin Foto">':'Sin foto';
                         productos += `<tr>
                                         <td>${ indice+1 }</td>
+                                        <td>
+                                            ${foto}
+                                        </td>
                                         <td>${ producto_enviado.precio.producto.nombre }</td>
                                         <td>${ producto_enviado.precio.proveedor.nombre }</td>
                                         <td>${ producto_enviado.precio.producto.presentacion.nombre }</td>
@@ -329,6 +341,7 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
+                                                        <th>Foto</th>
                                                         <th>Producto</th>
                                                         <th>Proveedor</th>
                                                         <th>Presentacion</th>
