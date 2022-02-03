@@ -1,0 +1,43 @@
+
+.loading-container {
+  display: none;
+  background-color: rgba(255, 255, 255, 0.7);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  width: 100%;
+  top: 0;
+  transition: display 1s ease;
+  z-index: 1100;
+}
+
+.loading-container .sk-three-bounce {
+  margin: 0;
+  width: 80px;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.loading-container .sk-three-bounce .sk-child {
+  background-color: #145388;
+}
+
+.loading-container p {
+  color: #145388;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0;
+  margin-top: -25px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+body {
+    display: none;
+}
