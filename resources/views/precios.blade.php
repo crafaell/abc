@@ -48,7 +48,7 @@
                                 <td>{{ $precio->proveedor->nombre }}</td>
                                 <td>{{ $precio->producto->nombre }}</td>
                                 <td>{{ $precio->producto->presentacion->nombre }}</td>
-                                <td>{{ $precio->precio }}</td>
+                                <td>{{ number_format((float)$precio->precio, 2, '.', '') }}</td>
                                 <td>{{ $precio->created_at }}</td>
 	                        </tr>
 	                    @endforeach
